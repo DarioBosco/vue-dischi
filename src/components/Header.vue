@@ -24,7 +24,7 @@ export default {
 header {
 	height: 70px;
 	width: 100%;
-	background-color: grey;
+	background-color: $bg-light;
 	.image-box {
 		height: 100%;
 		width: 10%;
