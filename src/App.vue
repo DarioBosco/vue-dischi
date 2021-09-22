@@ -19,9 +19,15 @@ export default {
 </script>
 
 <style lang="scss">
+@import './styles/general';
+@import './styles/mixins';
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+body {
+	background-color: $bg-dark;
 }
 </style>
