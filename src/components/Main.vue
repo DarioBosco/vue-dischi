@@ -21,9 +21,7 @@ export default {
 	methods: {
 		fetchAlbums() {
 			axios.get(this.URL).then((result) => {
-				//console.log(result.data.response);
 				this.albums = result.data.response;
-				console.log(this.albums);
 			});
 		},
 	},
