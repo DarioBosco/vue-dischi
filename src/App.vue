@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<Header />
-		<Main />
+		<Header @changedSelected="updateCurrentSearch" />
+		<Main :currentGenre="currentGenre" />
 	</div>
 </template>
 
@@ -15,9 +15,19 @@ export default {
 		Main,
 		Header,
 	},
-	props : {
-		album: Object,
-	}
+	data() {
+		return {
+			currentGenre: '',
+		};
+	},
+	methods: {
+		updateCurrentSearch(result) {
+			this.currentGenre = result;
+		},
+	},
+	created() {
+		this.updateCurrentSearch('all');
+	},
 };
 </script>
 

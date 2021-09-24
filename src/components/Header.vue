@@ -4,7 +4,7 @@
 			<img :src="logo" alt="" />
 		</div>
 		<label for="genreSelect">Seleziona il genere:</label>
-		<select name="genreSelect" id="genreSelect" @change="'changedSelected', input">
+		<select v-model="selectedGenre" name="genreSelect" id="genreSelect" @change="$emit('changedSelected', selectedGenre)">
 			<option selected value="all">Tutti i generi</option>
 			<option value="rock">Rock</option>
 			<option value="pop">Pop</option>
@@ -20,6 +20,7 @@ export default {
 	data() {
 		return {
 			logo: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png',
+			selectedGenre: 'all',
 		};
 	},
 };

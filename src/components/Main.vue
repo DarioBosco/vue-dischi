@@ -1,6 +1,6 @@
 <template>
 	<main class="d-flex justify-content-center align-items-center flex-wrap">
-		<Album v-for="(album, index) in albums" :key="index" :album="album" />
+		<Album v-for="(album, index) in getFilteredList()" :key="index" :album="album" />
 	</main>
 </template>
 
@@ -9,23 +9,40 @@ import Album from './Album.vue';
 import axios from 'axios';
 export default {
 	name: 'Main',
-	components: {
-		Album,
-	},
 	data() {
 		return {
 			URL: 'https://flynn.boolean.careers/exercises/api/array/music',
 			albums: [],
+			filteredList: [],
 		};
+	},
+	components: {
+		Album,
+	},
+	props: {
+		currentGenre: String,
 	},
 	methods: {
 		fetchAlbums() {
 			axios.get(this.URL).then((result) => {
 				this.albums = result.data.response;
+				console.log('API Done');
 			});
 		},
+		getFilteredList() {
+			if (this.currentGenre === 'all') {
+				return this.albums;
+			} else {
+				let filteredList = this.albums.filter((element) => {
+					if (element.genre.toLowerCase() === this.currentGenre) {
+						return element;
+					}
+				});
+				return filteredList;
+			}
+		},
 	},
-	created() {
+	mounted() {
 		this.fetchAlbums();
 	},
 };
