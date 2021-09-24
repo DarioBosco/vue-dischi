@@ -3,21 +3,16 @@
 		<div class="image-box">
 			<img :src="logo" alt="" />
 		</div>
-		<Search />
 	</header>
 </template>
 
 <script>
-import Search from './Search.vue';
 export default {
 	name: 'Header',
 	data() {
 		return {
 			logo: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png',
 		};
-	},
-	components: {
-		Search,
 	},
 };
 </script>
