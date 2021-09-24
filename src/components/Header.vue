@@ -4,7 +4,7 @@
 			<img :src="logo" alt="" />
 		</div>
 		<label for="genreSelect">Seleziona il genere:</label>
-		<select name="genreSelect" id="genreSelect">
+		<select name="genreSelect" id="genreSelect" @change="'changedSelected', input">
 			<option selected value="all">Tutti i generi</option>
 			<option value="rock">Rock</option>
 			<option value="pop">Pop</option>
