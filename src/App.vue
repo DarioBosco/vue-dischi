@@ -15,6 +15,9 @@ export default {
 		Main,
 		Header,
 	},
+	props : {
+		album: Object,
+	}
 };
 </script>
 

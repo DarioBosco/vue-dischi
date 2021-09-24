@@ -1,5 +1,5 @@
 <template>
-	<header>
+	<header class="d-flex justify-content-between align-items-center">
 		<div class="image-box">
 			<img :src="logo" alt="" />
 		</div>
@@ -12,7 +12,15 @@ export default {
 	data() {
 		return {
 			logo: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Spotify_icon.png',
+			data: [],
+			test: '',
 		};
+	},
+	components: {},
+	methods: {
+		getCurrentGenre(test) {
+			console.log(test);
+		},
 	},
 };
 </script>
